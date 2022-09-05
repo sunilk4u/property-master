@@ -1,9 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const db_connect = require("./Config/db");
 const app = express();
 
 //midlewares
 app.use(express.json());
+
+//connect to database
+db_connect();
 
 //server status
 app.get("/api/", (req, res) => {
