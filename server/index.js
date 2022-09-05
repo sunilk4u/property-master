@@ -10,7 +10,7 @@ app.use(express.json());
 db_connect();
 
 //server status
-app.get("/api/", (req, res) => {
+app.get("/api", (req, res) => {
   res.status(200).json({
     status: 200,
     message: "Server is up and running.",
