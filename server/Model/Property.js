@@ -38,12 +38,7 @@ const propertySchema = mongoose.Schema(
     description: {
       type: String,
       required: true,
-      validate: {
-        validator: function (des) {
-          return des.length >= 60;
-        },
-        message: "Description should be equal or greater than 60 characters",
-      },
+      minlength: 60,
     },
     price: {
       value: {
