@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const db_connect = require("./Config/db");
+const propertyRoute = require("./Routes/Property");
 const app = express();
 
 //midlewares
 app.use(express.json());
+app.use("/api/property", propertyRoute);
 
 //connect to database
 db_connect();
