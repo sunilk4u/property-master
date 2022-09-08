@@ -1,5 +1,6 @@
 const User = require("../Model/User");
 const ErrorHandler = require("../Utils/ErrorHandler");
+const bcrypt = require("bcrypt");
 
 const registerUser = (req, res) => {
   const { name, email, password, role } = req.body;
@@ -48,6 +49,37 @@ const registerUser = (req, res) => {
   });
 };
 
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email: email });
+    if (user) {
+      const matchPassword = await bcrypt.compare(password, user.password);
+
+      if (matchPassword) {
+        res.status(200).json({
+          status: 200,
+          message: "Login Successful",
+        });
+      } else {
+        res.status(401).json({
+          status: 401,
+          message: "Password did not match",
+        });
+      }
+    } else {
+      res.status(404).json({
+        status: 404,
+        message: "User not registered",
+      });
+    }
+  } catch (err) {
+    return ErrorHandler(req, res, 500, "Internal server erro");
+  }
+};
+
 module.exports = {
   registerUser,
+  loginUser,
 };
