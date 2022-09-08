@@ -1,17 +1,15 @@
 const User = require("../Model/User");
+const ErrorHandler = require("../Utils/ErrorHandler");
 
 const registerUser = (req, res) => {
   const { name, email, password, role } = req.body;
 
+  //check if user is already present
   User.findOne({ email: email }, (err, user) => {
     if (user) {
-      res.status(400).json({
-        message: "User is already registered",
-      });
+      ErrorHandler(req, res, 400, "User is already registered");
     } else if (err) {
-      res.status(500).json({
-        message: err.message,
-      });
+      ErrorHandler(req, res, 500, err.message);
     } else {
       const user = new User({
         name,
@@ -21,9 +19,7 @@ const registerUser = (req, res) => {
       });
       user.save((err) => {
         if (err) {
-          res.status(500).json({
-            message: err.message,
-          });
+          ErrorHandler(req, res, 500, err.message);
         } else {
           res.status(201).json({
             name: user.name,
