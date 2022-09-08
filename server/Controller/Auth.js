@@ -34,7 +34,7 @@ const registerUser = (req, res) => {
         password,
         role,
       });
-      //if user is not preset then save it
+      //if user is not present then save it
       user.save((err) => {
         if (err) {
           return ErrorHandler(req, res, 500, err.message);
