@@ -25,7 +25,10 @@ const registerUser = (req, res) => {
             message: err.message,
           });
         } else {
-          res.status(201).json(user);
+          res.status(201).json({
+            name: user.name,
+            email: user.email,
+          });
         }
       });
     }
