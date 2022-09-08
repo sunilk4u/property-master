@@ -1,4 +1,5 @@
 const express = require("express");
+const { registerProperty } = require("../Controller/Property");
 const router = express.Router();
 
 //get all properties
@@ -8,12 +9,12 @@ router.get("/all");
 router.get("/:id");
 
 //create a property with all details
-router.post("/property/");
+router.post("/register/", registerProperty);
 
 //modify a propety with details
-router.patch("/property")
+router.patch("/change")
 
 //delete a property
-router.delete("/property")
+router.delete("/remove")
 
 module.exports = router;

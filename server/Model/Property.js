@@ -52,7 +52,7 @@ const propertySchema = mongoose.Schema(
       },
     },
     seller: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   },
