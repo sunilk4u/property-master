@@ -11,7 +11,7 @@ const registerProperty = async (req, res) => {
     lease,
     description,
     price,
-    seller
+    seller,
   } = req.body;
 
   try {
@@ -24,7 +24,7 @@ const registerProperty = async (req, res) => {
       lease,
       description,
       price,
-      seller
+      seller,
     });
     property.save((err) => {
       if (err) {
@@ -38,6 +38,20 @@ const registerProperty = async (req, res) => {
   }
 };
 
+const listAllProperty = async (req, res) => {
+  try {
+    const property = await Property.find({});
+    if (property) {
+      res.status(200).json(property);
+    } else {
+      return ErrorHandler(req, res, 404, "Data not found");
+    }
+  } catch (err) {
+    return ErrorHandler(req, res, 500, err.message);
+  }
+};
+
 module.exports = {
   registerProperty,
+  listAllProperty,
 };

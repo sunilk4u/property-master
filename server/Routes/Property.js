@@ -1,9 +1,9 @@
 const express = require("express");
-const { registerProperty } = require("../Controller/Property");
+const { registerProperty, listAllProperty } = require("../Controller/Property");
 const router = express.Router();
 
 //get all properties
-router.get("/all");
+router.get("/all", listAllProperty);
 
 //get a single property
 router.get("/:id");
