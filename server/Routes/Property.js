@@ -1,5 +1,6 @@
 const express = require("express");
 const { registerProperty, listAllProperty } = require("../Controller/Property");
+const verifyToken = require("../Middleware/VerifyToken");
 const router = express.Router();
 
 //get all properties

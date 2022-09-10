@@ -69,7 +69,6 @@ const loginUser = async (req, res) => {
             expires: new Date(Date.now() + 900000),
           })
           .json({
-            status: 200,
             id: user.id,
             name: user.name,
           });
