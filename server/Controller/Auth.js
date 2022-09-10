@@ -1,7 +1,9 @@
 const User = require("../Model/User");
 const ErrorHandler = require("../Utils/ErrorHandler");
 const bcrypt = require("bcrypt");
+const generateToken = require("../Utils/GenerateToken");
 
+//register new user
 const registerUser = (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -49,6 +51,7 @@ const registerUser = (req, res) => {
   });
 };
 
+//login user
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -58,10 +61,18 @@ const loginUser = async (req, res) => {
       const matchPassword = await bcrypt.compare(password, user.password);
 
       if (matchPassword) {
-        res.status(200).json({
-          status: 200,
-          message: "Login Successful",
-        });
+        let token = generateToken(user);
+        res
+          .status(200)
+          .cookie("token", token, {
+            httpOnly: true,
+            expires: new Date(Date.now() + 900000),
+          })
+          .json({
+            status: 200,
+            id: user.id,
+            name: user.name,
+          });
       } else {
         res.status(401).json({
           status: 401,
@@ -75,7 +86,8 @@ const loginUser = async (req, res) => {
       });
     }
   } catch (err) {
-    return ErrorHandler(req, res, 500, "Internal server erro");
+    console.log(err);
+    return ErrorHandler(req, res, 500, "Internal server error");
   }
 };
 
