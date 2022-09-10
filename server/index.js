@@ -1,8 +1,9 @@
 require("dotenv").config();
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const db_connect = require("./Config/db");
 const propertyRoute = require("./Routes/Property");
-const authRoute = require("./Routes/Auth")
+const authRoute = require("./Routes/Auth");
 const reqLogger = require("./Middleware/RequestLogger");
 const app = express();
 
@@ -11,10 +12,10 @@ db_connect();
 
 //midlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(reqLogger);
 app.use("/api/property", propertyRoute);
 app.use("/api/user", authRoute);
-
 
 //server status
 app.get("/api", (req, res) => {
