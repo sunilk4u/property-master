@@ -18,4 +18,5 @@ export const LogInButtonSx = {
 export const SignUpButtonSx = {
   mx: 1,
   color: "#fff",
+  border: "1px solid #C996CC"
 };
