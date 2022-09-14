@@ -21,7 +21,7 @@ const propertySchema = mongoose.Schema(
     property_type: {
       type: String,
       required: true,
-      enum: ["apartment", "plot", "villa", "ind_house", "commercial"],
+      enum: ["apartment", "plot", "villa", "independent house", "commercial"],
     },
     sell: {
       type: Boolean,
