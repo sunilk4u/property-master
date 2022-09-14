@@ -1,7 +1,7 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import { Container, Typography, Button, Toolbar } from "@mui/material";
-import { AppBarSx, ContainerSx, LogInButtonSx, SignUpButtonSx, TypographySx } from "./styles";
+import { AppBarSx, ContainerSx, LogInButtonSx, SignUpButtonSx, TypographySx } from "./Styles";
 
 const Header = () => {
   return (
