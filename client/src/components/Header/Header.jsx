@@ -1,5 +1,6 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
+import { Link } from "react-router-dom";
 import { Container, Typography, Button, Toolbar } from "@mui/material";
 import { AppBarSx, ContainerSx, LogInButtonSx, SignUpButtonSx, TypographySx } from "./Styles";
 
@@ -10,7 +11,7 @@ const Header = () => {
         <Container maxWidth="xl" sx={ContainerSx}>
           <Toolbar>
             <Typography variant="h4" sx={TypographySx} component="a">
-              Property Master
+              <Link className="text-link" to="/">Property Master</Link>
             </Typography>
             <Button variant="contained" sx={LogInButtonSx}>Log in</Button>
             <Button variant="outlined" sx={SignUpButtonSx}>Sign Up</Button>

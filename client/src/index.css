@@ -21,6 +21,12 @@ body {
   justify-content: center;
 }
 
+/* Link Styles */
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /* Footer styles */
 .footer {
   position: fixed;
