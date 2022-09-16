@@ -21,6 +21,21 @@ body {
   justify-content: center;
 }
 
+/* Login Form Styles */
+.login_modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 100%;
+}
+.login_hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Link Styles */
 .text-link {
   color: inherit;
