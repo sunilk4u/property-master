@@ -33,6 +33,7 @@ const SignUpForm = () => {
       msg: "Password must be 8 characters long and must contain a number",
     },
     button: true,
+    signInAs: "buyer",
   });
 
   //handle name field changes
@@ -127,11 +128,14 @@ const SignUpForm = () => {
             labelId="select-role"
             id="select-role"
             label="Sign up as"
-            value="Buyer"
+            value={formValues.signInAs}
             color="light"
+            onChange={(e) =>
+              setFormValues({ ...formValues, signInAs: e.target.value })
+            }
           >
-            <MenuItem value="Buyer">Buyer</MenuItem>
-            <MenuItem value="Seller">Seller</MenuItem>
+            <MenuItem value="buyer">Buyer</MenuItem>
+            <MenuItem value="seller">Seller</MenuItem>
           </Select>
         </FormControl>
         <Button
