@@ -18,7 +18,7 @@ const LoginForm = () => {
     password: {
       value: "",
       error: false,
-      msg: "Password must be 8 characters long and must contain a number.",
+      msg: "Password must be 8 characters long and must contain a number",
     },
     button: true,
   });
