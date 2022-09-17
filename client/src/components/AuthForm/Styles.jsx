@@ -9,9 +9,8 @@ export const PaperSx = {
     xl: "25vw"
   },
   maxWidth: "480px",
-  height: "60vh",
-  maxHeight: "580px",
-  margin: "5rem auto",
+  maxHeight: "70%",
+  margin: "3rem auto",
 };
 
 export const ButtonSx = {
