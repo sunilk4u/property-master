@@ -6,8 +6,6 @@
 }
 html,
 body {
-  height: 100vh;
-  width: 100vw;
   background-color: #fff;
 }
 
@@ -29,6 +27,7 @@ body {
   justify-content: space-between;
   padding: 2rem;
   height: 100%;
+  gap: 10px;
 }
 .login_hero{
   display: flex;
