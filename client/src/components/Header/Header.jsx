@@ -33,6 +33,7 @@ const Header = () => {
   );
 };
 
+//Header buttons changes on home, login and signup pages
 const AuthButtons = () => {
   const currPath = useLocation();
   switch (currPath.pathname) {

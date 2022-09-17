@@ -8,6 +8,7 @@ import { ButtonSx } from "./Styles";
 import { ValidateEmail, ValidatePassword } from "./Validator";
 
 const LoginForm = () => {
+  //form values use state
   const [formValues, setFormValues] = useState({
     email: {
       value: "",
@@ -22,6 +23,7 @@ const LoginForm = () => {
     button: true,
   });
 
+  //handle email field changes
   const emailHandler = (e) => {
     if (ValidateEmail(e.currentTarget.value)) {
       formValues.email.error = false;
@@ -34,6 +36,7 @@ const LoginForm = () => {
     });
   };
 
+  //handle password field changes
   const passwordHandler = (e) => {
     if (ValidatePassword(e.currentTarget.value)) {
       formValues.password.error = false;
@@ -41,12 +44,13 @@ const LoginForm = () => {
       formValues.password.error = true;
     }
 
+    //if both email and password does not have error then enable button
     if (formValues.email.error || formValues.password.error) {
       formValues.button = true;
     } else {
       formValues.button = false;
     }
-    
+
     setFormValues({
       ...formValues,
       password: { ...formValues.password, value: e.currentTarget.value },
