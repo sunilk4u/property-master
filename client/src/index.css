@@ -6,13 +6,13 @@
 }
 html,
 body {
-  background-color: #fff;
+  background-color: rgb(226, 226, 226);
 }
 
 /* Homepage styles */
-.call_text{
+.call_text {
   position: relative;
-  background-color: #3D2C8D;
+  background-color: #3d2c8d;
   height: 40vh;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ body {
 }
 
 /* Login Form Styles */
-.login_modal{
+.login_modal {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,10 +29,15 @@ body {
   height: 100%;
   gap: 10px;
 }
-.login_hero{
+.login_hero {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* ICON COLORS */
+.icon-active{
+  color: #C996CC;
 }
 
 /* Link Styles */
