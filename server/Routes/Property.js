@@ -1,7 +1,14 @@
 const express = require("express");
-const { registerProperty, listAllProperty } = require("../Controller/Property");
+const {
+  registerProperty,
+  listAllProperty,
+  searchProperty,
+} = require("../Controller/Property");
 const verifyToken = require("../Middleware/VerifyToken");
 const router = express.Router();
+
+//get search params properties
+router.get("/", searchProperty);
 
 //get all properties
 router.get("/all", listAllProperty);
@@ -13,9 +20,9 @@ router.get("/:id");
 router.post("/register/", registerProperty);
 
 //modify a propety with details
-router.patch("/change")
+router.patch("/change");
 
 //delete a property
-router.delete("/remove")
+router.delete("/remove");
 
 module.exports = router;

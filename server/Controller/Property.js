@@ -1,9 +1,11 @@
 const Property = require("../Model/Property");
 const ErrorHandler = require("../Utils/ErrorHandler");
 
+//register a property into the database
 const registerProperty = async (req, res) => {
   const {
     name,
+    address,
     property_size,
     property_type,
     sell,
@@ -17,6 +19,7 @@ const registerProperty = async (req, res) => {
   try {
     const property = await new Property({
       name,
+      address,
       property_size,
       property_type,
       sell,
@@ -38,6 +41,7 @@ const registerProperty = async (req, res) => {
   }
 };
 
+//list all the property in the database
 const listAllProperty = async (req, res) => {
   try {
     const property = await Property.find({});
@@ -51,7 +55,34 @@ const listAllProperty = async (req, res) => {
   }
 };
 
+//search the property database and provide data according to query params
+const searchProperty = async (req, res) => {
+  try {
+    const { state, city, type } = req.query;
+    if (state && city && type) {
+      const property = await Property.find({
+        $and: [
+          { "address.city": city },
+          { "address.state": state },
+          { property_type: type },
+        ],
+      });
+      if (!(property.length > 0)) {
+        return ErrorHandler(req, res, 404, "Property not found in database");
+      }
+      res.status(200).json(property);
+    } else {
+      res.status(404).json({
+        status: 404,
+        message: "Invalid query",
+      });
+    }
+  } catch (err) {
+    return ErrorHandler(req, res, 500, err.message);
+  }
+};
 module.exports = {
   registerProperty,
   listAllProperty,
+  searchProperty,
 };
