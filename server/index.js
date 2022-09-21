@@ -10,7 +10,7 @@ const app = express();
 //connect to database
 db_connect();
 
-//midlewares
+//middlewares
 app.use(express.json());
 app.use(cookieParser());
 app.use(reqLogger);
