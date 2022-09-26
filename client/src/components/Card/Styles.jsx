@@ -1,4 +1,4 @@
-import theme from "../../Theme/Theme";
+import theme from "../../theme/Theme";
 
 export const CardSx = {
     borderRadius: "10px"

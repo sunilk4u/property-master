@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Autocomplete, Button, Container, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { AutocompleteSx, BoxSx, ButtonSx } from "./Styles";
-import { stateList, cityList } from "../../Utils/SearchLocation";
-import { propertyTypes } from "../../Utils/PropertyTypes";
+import { stateList, cityList } from "../../utils/SearchLocation";
+import { propertyTypes } from "../../utils/PropertyTypes";
 
 const Search = () => {
   const [state, setState] = useState(null);
