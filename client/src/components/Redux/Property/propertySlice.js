@@ -6,6 +6,6 @@ const propertySlice = createSlice({
   reducers: {},
 });
 
-export const {} = propertySlice.actions;
+export const {emp} = propertySlice.actions;
 
 export default propertySlice.reducer;
